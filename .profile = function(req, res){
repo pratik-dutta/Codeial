@@ -1,0 +1,11 @@
+[33mcommit a1bbb15c08d357d4fac83a87144bb29d262f8fc8[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: pratik-dutta <pratikdutta.786@gmail.com>
+Date:   Wed Feb 19 16:13:50 2020 +0530
+
+    create controller and route for home
+
+[33mcommit af83d8b9608fdc3a4dc54f564fe37c110991425e[m[33m ([m[1;31morigin/master[m[33m)[m
+Author: pratik-dutta <pratikdutta.786@gmail.com>
+Date:   Wed Feb 19 12:12:22 2020 +0530
+
+    Initial Commit: created directory structure  and setup express
