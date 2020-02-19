@@ -5,6 +5,7 @@ const port = 8000;
 //use exress router
 app.use("/", require("./routes/index"));
 
+//setting up view engine
 app.set("view engine", "ejs");
 app.set("views", "./views");
 
