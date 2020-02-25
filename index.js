@@ -8,6 +8,10 @@ app.use(express.static("./assets"));
 //using layout
 app.use(expressLayout);
 
+//extracting styles and script from sub-pages to layout 
+app.set("layout extractStyles", true);
+app.set("layout extractScripts", true);
+
 //use exress router
 app.use("/", require("./routes/index"));
 
