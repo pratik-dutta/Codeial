@@ -1,21 +1,29 @@
 <link rel="stylesheet" href="/css/signup.css">
 
-<div class="signup">
+<form action="/users/create" method="POST">
 
-    <div id="email-section">
-        <label for="email">Email Id : </label>
-        <input type="text" name="email" id="email" placeholder="Email Id">
-    </div>
-    <div id="password-section">
-        <label for="password">Password : </label>
-        <input type="password" name="password" id="password" placeholder="Password">
-    </div>
-    <div id="name">
-        <label for="name">Name : </label>
-        <input type="text" name="name" id="name" placeholder="Name">
-    </div>
-    <div id="signup-button-section">
-        <input type="button" name="submit" id="submit" value="Sign Up">
+    <div class="signup">
+
+        <div id="email-section">
+            <label for="email">Email Id : </label>
+            <input type="text" name="email" id="email" placeholder="Email Id" required>
+        </div>
+        <div id="password-section">
+            <label for="password">Password : </label>
+            <input type="password" name="password" id="password" placeholder="Password" required>
+        </div>
+        <div id="password-section">
+            <label for="confirm_password">Confirm Password : </label>
+            <input type="password" name="confirm_password" id="password" placeholder="Password" required>
+        </div>
+        <div id="name">
+            <label for="name">Name : </label>
+            <input type="text" name="name" id="name" placeholder="Name" required>
+        </div>
+        <div id="signup-button-section">
+            <input type="submit" name="submit" id="submit" value="Sign Up">
+        </div>
+    
     </div>
 
-</div>
+</form>
