@@ -13,6 +13,10 @@ module.exports.post = function(req, res){
 };
 //rendeing sigup
 module.exports.signup = function(req, res){
+    //if user is already sign in
+    if(req.isAuthenticated()){
+        return res.redirect("/users/profile");
+    }
     return res.render("signup", {
         title: "User SignUp"
         
@@ -20,6 +24,10 @@ module.exports.signup = function(req, res){
 };
 //rendeing sigin 
 module.exports.signin = function(req, res){
+    //if user is already sign in
+    if(req.isAuthenticated()){
+        return res.redirect("/users/profile");
+    }
     return res.render("signin", {
         title: "User SignIn"
     });
@@ -53,5 +61,11 @@ module.exports.create = function(req, res){
 
 
 module.exports.createSessions = function(req, res){
-    //TODO
+    return res.redirect("/");
+}
+
+module.exports.destroySession = function(req, res){
+    // request is getting logout function through passport
+    req.logout();
+    return res.redirect("/");
 }
