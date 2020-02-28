@@ -1,5 +1,5 @@
 
-<h1>Codeial <%= title %> </h1>
+<h1>Codeial | <%= title %> </h1>
 
 <section id="feed-posts">
     <h4>Posts</h4>
@@ -8,4 +8,21 @@
         <input type="submit" value="Post">
 
     </form>
+
+    <div id="post">
+        <ul>
+            <% for(post of posts) { %>
+                
+                <p>
+                    <li>
+                        <%= post.content %> 
+                        <br>
+                        <%= post.user.name %> 
+                    </li>
+                </p>
+                
+            <% } %>  
+        </ul>
+    </div>
+
 </section>
