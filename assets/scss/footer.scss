@@ -1,0 +1,22 @@
+#footer{
+    height: 80px;
+    background-color: rgb(123, 123, 211);
+    display: flex;
+    #company-name{
+        font-weight: 700;
+        font-size: 1.2rem;
+        margin: 10px 0px 0px 10px;
+        color: white;
+    }
+    #links{
+        margin: 10px 0px 0px 40px;
+        font-size: 1.1rem;
+
+        div{
+            margin-bottom: 10px;
+        }
+        a{
+            color: white;
+        }
+    }
+}

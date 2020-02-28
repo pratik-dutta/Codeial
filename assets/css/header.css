@@ -1,0 +1,32 @@
+#main-layout {
+  height: 100%;
+}
+
+#head-layout {
+  background-color: #7b7bd3;
+  display: flex;
+  align-items: center;
+  height: 50px;
+  color: white;
+}
+
+#head-layout #heading {
+  font-size: 1.5rem;
+  margin-left: 10px;
+}
+
+#head-layout ul {
+  list-style: none;
+  display: flex;
+  margin: 0px 20px 0px auto;
+}
+
+#head-layout ul li {
+  float: right;
+  display: flex;
+  margin-left: 10px;
+}
+
+#head-layout ul a {
+  color: white;
+}
