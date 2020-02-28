@@ -1,4 +1,5 @@
 const User = require("../models/user");
+const Post = require("../models/post");
 
 module.exports.profile = function(req, res){
     return res.render("users", {
@@ -69,3 +70,4 @@ module.exports.destroySession = function(req, res){
     req.logout();
     return res.redirect("/");
 }
+
