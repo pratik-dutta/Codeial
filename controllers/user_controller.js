@@ -13,9 +13,11 @@ module.exports.profile = function(req, res){
 module.exports.update = function(req, res){
     if(req.user.id == req.params.id){
         User.findByIdAndUpdate(req.params.id, req.body, function(err, user){
+            req.flash('success', 'Updated!');
             return res.redirect('back');
         });
     }else{
+        req.flash('error', 'Unauthorized!');
         return res.status(401).send('Unauthorized');
     }
 }
@@ -54,6 +56,7 @@ module.exports.signin = function(req, res){
 module.exports.create = function(req, res){
     console.log("create");
     if(req.body.password != req.body.confirm_password){
+        req.flash('error', 'Passwords do not match');
         return res.redirect("back");
     }
     User.findOne({email: req.body.email}, function(err, user){
@@ -71,6 +74,7 @@ module.exports.create = function(req, res){
                 return res.redirect("/users/signin");
             });
         }else{
+            req.flash('success', 'You have signed up, login to continue!');
             return res.redirect("back");
         }
     });
@@ -78,10 +82,13 @@ module.exports.create = function(req, res){
 
 
 module.exports.createSessions = function(req, res){
+    req.flash("success", "Logged in Successfully");
+    req.flash('success', 'Logged in Successfully');
     return res.redirect("/");
 }
 
 module.exports.destroySession = function(req, res){
+    req.flash("success", "Logged Out Successfully");
     // request is getting logout function through passport
     req.logout();
     return res.redirect("/");
