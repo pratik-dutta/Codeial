@@ -1,0 +1,23 @@
+#home-main-container{
+    display: flex;
+    flex-direction: column;
+
+    #title{
+        display: flex;
+        justify-content: center;
+    }
+
+    #home-container{
+        display: flex;
+    }
+
+    #feed-posts{
+        padding: 10px;
+        width: 70%;
+    }
+    #user-friends{
+        padding: 10px;
+        border-left: 1px solid lightblue;
+    }
+
+}
