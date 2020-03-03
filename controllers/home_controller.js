@@ -23,18 +23,41 @@ module.exports.home = function(req, res){
     // });
 
     //it populate the user
-    Post.find({}).populate("user").exec(function(err, posts){
-            if(err){
-                console.log("Error in fetching Posts");
-                return;
-            }
-            return res.render("home", {
-                title: "Home",
-                posts: posts,
+    // Post.find({}).populate("user").exec(function(err, posts){
+    //         if(err){
+    //             console.log("Error in fetching Posts");
+    //             return;
+    //         }
+    //         return res.render("home", {
+    //             title: "Home",
+    //             posts: posts,
                 
-            });
+    //         });
+    //     }
+    // );
+
+    // it populate the user as well as the comments and it's user
+
+    Post.find({})
+    .populate("user")
+    .populate({
+        path: "comments",
+        populate: {
+            path: "user"
         }
-    );
+    })
+    .exec(function(err, posts){
+        if(err){
+            console.log("Error in fetching Posts");
+            return;
+        }
+        return res.render("home", {
+            title: "Home",
+            posts: posts,
+            
+        });
+    }
+);
 
     
 }
