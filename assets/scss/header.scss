@@ -1,27 +1,35 @@
-#main-layout{
-    height: 100%;;
-}
-#head-layout{
-    background-color: rgb(123, 123, 211);
-    display: flex;
-    align-items: center;
-    height: 50px;
-    color: white;
-    #heading{
-        font-size: 1.5rem;
-        margin-left: 10px;
-    }
-    ul{
-        list-style: none;
+#layout-header{
+    nav{
         display: flex;
-        margin: 0px 20px 0px auto;
-        li{
-            float: right;
-            display: flex;
-            margin-left: 10px;
+        justify-content: space-between;
+        padding: 0 10px;
+        background: #2196f3;
+        color: white;
+        box-shadow: 1px 1px 1px 1px lightgrey;
+
+        .mini-logo{
+            p{
+                margin: 5px;
+                font-size: 1.4rem;
+                font-weight: bold;
+            }
         }
+
+        .auth-links{
+            ul{
+                margin: 5% 5px;
+                display: flex;
+                list-style: none;
+                li{
+                    margin-right: 10px;
+                }
+            }
+        }
+
         a{
             color: white;
+            text-decoration: none;
         }
+
     }
 }
