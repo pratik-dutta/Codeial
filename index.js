@@ -27,6 +27,9 @@ app.use(cookieParser());
 
 app.use(express.static("./assets"));
 
+//for avatar static files( making uploads file available)
+app.use("/uploads", express.static( __dirname + "/uploads"));
+
 //using layout
 app.use(expressLayout);
 

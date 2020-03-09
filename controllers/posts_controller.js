@@ -41,7 +41,7 @@ module.exports.destroy = async function(req, res){
 
         if (post.user == req.user.id){
             post.remove();
-
+            
             await Comment.deleteMany({post: req.params.id});
 
 
