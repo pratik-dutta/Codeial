@@ -1,8 +1,10 @@
 body {
   margin: 0;
-  /* text-align: center; */
+  display: flex;
+  flex-direction: column;
 }
 
-body #layout-main {
-  height: 100%;
+#main-layout {
+  display: flex;
+  flex-direction: column;
 }

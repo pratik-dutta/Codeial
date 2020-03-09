@@ -1,29 +1,32 @@
-#layout-header nav {
+#main-layout {
+  height: 100%;
+}
+
+#head-layout {
+  background-color: #7b7bd3;
   display: flex;
-  justify-content: space-between;
-  padding: 0 10px;
-  background: #2196f3;
+  align-items: center;
+  height: 50px;
   color: white;
-  box-shadow: 1px 1px 1px 1px lightgrey;
 }
 
-#layout-header nav .mini-logo p {
-  margin: 5px;
-  font-size: 1.4rem;
-  font-weight: bold;
+#head-layout #heading {
+  font-size: 1.5rem;
+  margin-left: 10px;
 }
 
-#layout-header nav .auth-links ul {
-  margin: 5% 5px;
-  display: flex;
+#head-layout ul {
   list-style: none;
+  display: flex;
+  margin: 0px 20px 0px auto;
 }
 
-#layout-header nav .auth-links ul li {
-  margin-right: 10px;
+#head-layout ul li {
+  float: right;
+  display: flex;
+  margin-left: 10px;
 }
 
-#layout-header nav a {
+#head-layout ul a {
   color: white;
-  text-decoration: none;
 }

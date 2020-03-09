@@ -1,15 +1,23 @@
-#home-container {
+#home-main-container {
+  display: flex;
+  flex-direction: column;
+}
+
+#home-main-container #title {
+  display: flex;
+  justify-content: center;
+}
+
+#home-main-container #home-container {
   display: flex;
 }
 
-#home-container #feed-posts {
-  width: 70%;
+#home-main-container #feed-posts {
   padding: 10px;
+  width: 70%;
 }
 
-#home-container #user-friends {
-  width: 30%;
+#home-main-container #user-friends {
   padding: 10px;
-  border-left: 1px solid lightgrey;
-  height: 100%;
+  border-left: 1px solid lightblue;
 }
