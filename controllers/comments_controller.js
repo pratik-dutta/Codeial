@@ -1,8 +1,5 @@
-const Comment = require("../models/comment");
-const Post = require("../models/post");
-
-
-//with async
+const Comment = require('../models/comment');
+const Post = require('../models/post');
 
 module.exports.create = async function(req, res){
 
@@ -57,8 +54,13 @@ module.exports.destroy = async function(req, res){
 
             let post = Post.findByIdAndUpdate(postId, { $pull: {comments: req.params.id}});
 
+<<<<<<< HEAD
              // send the comment id which was deleted back to the views
              if (req.xhr){
+=======
+            // send the comment id which was deleted back to the views
+            if (req.xhr){
+>>>>>>> e24c041ff8a52f4443aca7cbdc29d6a790281b59
                 return res.status(200).json({
                     data: {
                         comment_id: req.params.id
@@ -67,6 +69,10 @@ module.exports.destroy = async function(req, res){
                 });
             }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> e24c041ff8a52f4443aca7cbdc29d6a790281b59
             req.flash('success', 'Comment deleted!');
 
             return res.redirect('back');
@@ -76,53 +82,7 @@ module.exports.destroy = async function(req, res){
         }
     }catch(err){
         req.flash('error', err);
-        console.log('Error', err);
         return;
     }
     
 }
-
-
-//without async
-
-// module.exports.create = function(req, res){
-//     console.log(req.body);
-//     Post.findById(req.body.post, function(err, post){
-//         //handle error
-//         if(err){
-//             console.log("error in comments", err);
-//             return;
-//         }
-//         if(post){
-//             Comment.create({
-//                 content: req.body.content,
-//                 post: req.body.post,
-//                 user: req.user._id
-//             }, function(err, comment){
-//                 //handle error
-//                 post.comments.push(comment);
-//                 post.save();
-
-//                 res.redirect("/");
-//             });
-//         }
-//     });
-// }
-
-
-// module.exports.destroy = function(req, res){
-//     Comment.findById(req.params.id, function(err, comment){
-//         if (comment.user == req.user.id){
-
-//             let postId = comment.post;
-
-//             comment.remove();
-
-//             Post.findByIdAndUpdate(postId, { $pull: {comments: req.params.id}}, function(err, post){
-//                 return res.redirect('back');
-//             })
-//         }else{
-//             return res.redirect('back');
-//         }
-//     });
-// }

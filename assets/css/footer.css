@@ -1,25 +1,16 @@
-#footer {
-  height: 80px;
-  background-color: #7b7bd3;
+#layout-footer {
+  color: white;
+  background: grey;
+  padding: 5px 10px;
   display: flex;
+  justify-content: flex-start;
 }
 
-#footer #company-name {
-  font-weight: 700;
-  font-size: 1.2rem;
-  margin: 10px 0px 0px 10px;
+#layout-footer a {
   color: white;
+  text-decoration: none;
 }
 
-#footer #links {
-  margin: 10px 0px 0px 40px;
-  font-size: 1.1rem;
-}
-
-#footer #links div {
-  margin-bottom: 10px;
-}
-
-#footer #links a {
-  color: white;
+#layout-footer .footer-nav ul {
+  list-style: none;
 }

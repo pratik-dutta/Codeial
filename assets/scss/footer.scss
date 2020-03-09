@@ -1,23 +1,18 @@
-
-#footer{
-    height: 80px;
-    background-color: rgb(123, 123, 211);
-    display: flex;
-    #company-name{
-        font-weight: 700;
-        font-size: 1.2rem;
-        margin: 10px 0px 0px 10px;
+#layout-footer{
+    color: white;
+    a{
         color: white;
+        text-decoration: none;
     }
-    #links{
-        margin: 10px 0px 0px 40px;
-        font-size: 1.1rem;
 
-        div{
-            margin-bottom: 10px;
-        }
-        a{
-            color: white;
+    background: grey;
+    padding: 5px 10px;
+    display: flex;
+    justify-content: flex-start;
+
+    .footer-nav{
+        ul{
+            list-style: none;
         }
     }
 }

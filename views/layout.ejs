@@ -1,7 +1,7 @@
 <html>
     <head>
         <title>
-            <%= title %>
+            <%= title  %>
         </title>
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css">
@@ -12,17 +12,29 @@
         <link rel="stylesheet" href="/css/layout.css">
         <link rel="stylesheet" href="/css/header.css">
         <link rel="stylesheet" href="/css/footer.css">
+
         <%- style %>
+        
     </head>
+<<<<<<< HEAD
     <body>
         <%- include('_header'); %> 
         <br>
-        
-        <main id="main-layout">
-            <%- body %>
-        </main>
+=======
+
+    <body>
+        <%- include('_header'); %>
+
        
-        <%- include('_footer'); %> 
+>>>>>>> e24c041ff8a52f4443aca7cbdc29d6a790281b59
+        
+        <main id="layout-main">
+            <%- body %>
+
+        </main>
+
+
+        <%- include('_footer'); %>
 
         <%- script %>
 
@@ -49,6 +61,10 @@
                 }).show();    
             <%} %>
         </script>
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> e24c041ff8a52f4443aca7cbdc29d6a790281b59
     </body>
 </html>

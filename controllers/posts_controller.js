@@ -1,17 +1,20 @@
-const Post = require("../models/post");
-const Comment = require("../models/comment");
-
-
-//with async
+const Post = require('../models/post');
+const Comment = require('../models/comment');
 
 module.exports.create = async function(req, res){
     try{
-        await Post.create({
+        let post = await Post.create({
             content: req.body.content,
             user: req.user._id
         });
+<<<<<<< HEAD
     
         if (req.xhr){
+=======
+        
+        if (req.xhr){
+            // if we want to populate just the name of the user (we'll not want to send the password in the API), this is how we do it!
+>>>>>>> e24c041ff8a52f4443aca7cbdc29d6a790281b59
             post = await post.populate('user', 'name').execPopulate();
 
             return res.status(200).json({
@@ -29,8 +32,9 @@ module.exports.create = async function(req, res){
 
     }catch(err){
         req.flash('error', err);
-        console.log('Error', err);
-        return;
+        // added this to view the error on console as well
+        console.log(err);
+        return res.redirect('back');
     }
   
 }
@@ -46,6 +50,10 @@ module.exports.destroy = async function(req, res){
 
             await Comment.deleteMany({post: req.params.id});
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> e24c041ff8a52f4443aca7cbdc29d6a790281b59
             if (req.xhr){
                 return res.status(200).json({
                     data: {
@@ -65,43 +73,13 @@ module.exports.destroy = async function(req, res){
 
     }catch(err){
         req.flash('error', err);
+<<<<<<< HEAD
 
         console.log('Error', err);
         return res.redirect('back')
+=======
+        return res.redirect('back');
+>>>>>>> e24c041ff8a52f4443aca7cbdc29d6a790281b59
     }
     
 }
-
-
-
-//without async
-
-// module.exports.create = function(req, res){
-//     Post.create({
-//         content: req.body.content,
-//         user: req.user._id
-//     }, function(err, post){
-//         if(err){
-//             console.log("Error in connecting Post DB", err);
-//             return;
-//         }
-//         return res.redirect("back");
-//     });
-// }
-
-
-// module.exports.destroy = function(req, res){
-//     Post.findById(req.params.id, function(err, post){
-//         // .id means converting the object id into string
-//         if (post.user == req.user.id){
-//             post.remove();
-
-//             Comment.deleteMany({post: req.params.id}, function(err){
-//                 return res.redirect('back');
-//             });
-//         }else{
-//             return res.redirect('back');
-//         }
-
-//     });
-// }
