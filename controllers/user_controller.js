@@ -61,13 +61,13 @@ module.exports.create = function(req, res){
     }
     User.findOne({email: req.body.email}, function(err, user){
         if(err){
-            console.log("Error finding while user Sign up");
+            req.flash('error', err); 
             return;
         }
         if(!user){
             User.create(req.body, function(err, user){
                 if(err){
-                    console.log("Error finding while user Sign up");
+                    req.flash('error', err);
                     return;
                 }
 
@@ -82,15 +82,14 @@ module.exports.create = function(req, res){
 
 
 module.exports.createSessions = function(req, res){
-    req.flash("success", "Logged in Successfully");
     req.flash('success', 'Logged in Successfully');
     return res.redirect("/");
 }
 
 module.exports.destroySession = function(req, res){
-    req.flash("success", "Logged Out Successfully");
     // request is getting logout function through passport
     req.logout();
+    req.flash('success', 'You have logged out!');
     return res.redirect("/");
 }
 
