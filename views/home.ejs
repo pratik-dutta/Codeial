@@ -4,7 +4,6 @@
     <section id="feed-posts">
             <h4>Posts</h4>
             <% if(locals.user){ %>
-<<<<<<< HEAD
                 <h4>Posts</h4>
             
                 <form action="/posts/create" id="new-post-form" method="POST">
@@ -18,13 +17,11 @@
                         <% for(post of posts) { %>
                             
                             <%- include("_posts") -%> 
-=======
             <form action="/posts/create" id="new-post-form" method="POST">
                 <textarea name="content" cols="30" rows="3" placeholder="Type Here..." required></textarea>
                 <input type="submit" value="Post">
             </form>
             <% } %>
->>>>>>> e24c041ff8a52f4443aca7cbdc29d6a790281b59
         
             <div id="posts-list-container">
                 <ul>
