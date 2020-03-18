@@ -1,5 +1,7 @@
 const express = require("express");
+const env = require("./config/environment");
 const cookieParser = require("cookie-parser");
+const logger = require("morgan");
 const app = express();
 const port = 8000;
 const expressLayout = require("express-ejs-layouts");
@@ -23,24 +25,31 @@ const chatSockets = require('./config/chat_sockets').chatSockets(chatServer);
 chatServer.listen(5000);
 console.log('chat server is listening on port 5000');
 
+const path = require("path");
 
-app.use(sassMiddleware({
-    src: "./assets/scss",
-    dest: "./assets/css",
-    debug: true,
-    outputStyle: "expanded",
-    prefix: "/css"
-}));
+if(env.name == "development"){
+    app.use(sassMiddleware({
+        src: path.join(__dirname, env.asset_path, "scss"),
+        dest: path.join(__dirname, env.asset_path, "css"),
+        debug: true,
+        outputStyle: "expanded",
+        prefix: "/css"
+    }));
+}
+
 
 app.use(express.urlencoded({extended: true}));
 
 app.use(cookieParser());
 
 
-app.use(express.static("./assets"));
+app.use(express.static(env.asset_path));
 
 //for avatar static files( making uploads file available)
 app.use("/uploads", express.static( __dirname + "/uploads"));
+
+//for logger
+app.use(logger(env.morgan.mode, env.morgan.options));
 
 //using layout
 app.use(expressLayout);
@@ -60,7 +69,7 @@ app.set("views", "./views");
 app.use(session({
     name: "codeial",
     //TODO change it before production
-    secret: "blahblahsomething",
+    secret: env.session_cookie_key,
     saveUninitialized: false,
     resave: false,
     cookie: {
